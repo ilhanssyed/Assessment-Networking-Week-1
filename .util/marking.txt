@@ -9,7 +9,7 @@ test_postcode_cli.py .............F..................                    [ 49%]
 test_postcode_functions.py ............................................. [ 98%]
 .                                                                        [100%]
 
-======================== 14 failed, 77 passed in 5.95s =========================
+======================== 14 failed, 77 passed in 7.20s =========================
 ************* Module postcode_cli
 postcode_cli.py:2:0: C0301: Line too long (124/100) (line-too-long)
 postcode_cli.py:30:15: W0718: Catching too general exception Exception (broad-exception-caught)
@@ -18,25 +18,27 @@ postcode_cli.py:3:0: C0411: standard import "argparse.ArgumentParser" should be 
 postcode_cli.py:2:0: W0611: Unused get_postcodes_details imported from postcode_functions (unused-import)
 postcode_cli.py:2:0: W0611: Unused get_postcode_for_location imported from postcode_functions (unused-import)
 ************* Module postcode_functions
-postcode_functions.py:13:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
+postcode_functions.py:14:13: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+postcode_functions.py:15:29: E0602: Undefined variable 'f' (undefined-variable)
 postcode_functions.py:19:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
-postcode_functions.py:16:15: W0613: Unused argument 'cache' (unused-argument)
-postcode_functions.py:22:0: C0116: Missing function or method docstring (missing-function-docstring)
-postcode_functions.py:29:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:31:35: W1309: Using an f-string that does not have any interpolated variables (f-string-without-interpolation)
-postcode_functions.py:40:0: C0116: Missing function or method docstring (missing-function-docstring)
-postcode_functions.py:50:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:52:35: W1309: Using an f-string that does not have any interpolated variables (f-string-without-interpolation)
-postcode_functions.py:58:4: R1720: Unnecessary "else" after "raise", remove the "else" and de-indent the code inside it (no-else-raise)
-postcode_functions.py:64:0: C0116: Missing function or method docstring (missing-function-docstring)
-postcode_functions.py:70:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
-postcode_functions.py:84:0: C0116: Missing function or method docstring (missing-function-docstring)
-postcode_functions.py:94:15: W3101: Missing timeout argument for method 'req.post' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:25:9: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+postcode_functions.py:26:25: E0602: Undefined variable 'f' (undefined-variable)
+postcode_functions.py:27:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
+postcode_functions.py:30:0: C0116: Missing function or method docstring (missing-function-docstring)
+postcode_functions.py:37:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:39:35: W1309: Using an f-string that does not have any interpolated variables (f-string-without-interpolation)
+postcode_functions.py:48:0: C0116: Missing function or method docstring (missing-function-docstring)
+postcode_functions.py:58:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:60:35: W1309: Using an f-string that does not have any interpolated variables (f-string-without-interpolation)
+postcode_functions.py:66:4: R1720: Unnecessary "else" after "raise", remove the "else" and de-indent the code inside it (no-else-raise)
+postcode_functions.py:72:0: C0116: Missing function or method docstring (missing-function-docstring)
+postcode_functions.py:78:15: W3101: Missing timeout argument for method 'req.get' can cause your program to hang indefinitely (missing-timeout)
+postcode_functions.py:92:0: C0116: Missing function or method docstring (missing-function-docstring)
+postcode_functions.py:102:15: W3101: Missing timeout argument for method 'req.post' can cause your program to hang indefinitely (missing-timeout)
 postcode_functions.py:4:0: C0411: standard import "os" should be placed before third party import "requests" (wrong-import-order)
 postcode_functions.py:5:0: C0411: standard import "json" should be placed before third party import "requests" (wrong-import-order)
 postcode_functions.py:4:0: W0611: Unused import os (unused-import)
-postcode_functions.py:5:0: W0611: Unused import json (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.14/10 (previous run: 7.14/10, +0.00)
+Your code has been rated at 6.26/10 (previous run: 6.26/10, +0.00)
 
