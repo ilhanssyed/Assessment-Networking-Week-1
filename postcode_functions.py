@@ -46,6 +46,7 @@ def validate_postcode(postcode: str) -> bool:
         raise req.RequestException(f"Unable to access API.")
 
     response.raise_for_status()
+    result = response.json().get("result", False)
 
     data = response.json()
     cache.setdefault(postcode, {})
@@ -102,7 +103,7 @@ def get_postcode_completions(postcode_start: str) -> list[str]:
     value = data.get("result", [])
 
     cache.setdefault(postcode_start, {})
-    cache[postcode_start]["valid"] = result
+    cache[postcode_start]["valid"] = value
     save_cache(cache)
 
     return value[:5]
