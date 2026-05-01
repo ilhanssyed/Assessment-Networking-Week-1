@@ -5,17 +5,15 @@ plugins: requests-mock-1.12.1
 collected 91 items
 
 test_postcode_cache.py FFFFFFFFFFFFF                                     [ 14%]
-test_postcode_cli.py F.F.FFFFFFFFFFFFFFFFFFFFF.F.....                    [ 49%]
+test_postcode_cli.py .............F.FFFFFF...........                    [ 49%]
 test_postcode_functions.py ............................................. [ 98%]
 .                                                                        [100%]
 
-======================== 37 failed, 54 passed in 4.99s =========================
+======================== 20 failed, 71 passed in 6.18s =========================
 ************* Module postcode_cli
 postcode_cli.py:2:0: C0301: Line too long (124/100) (line-too-long)
 postcode_cli.py:3:0: C0411: standard import "argparse.ArgumentParser" should be placed before first party import "postcode_functions.validate_postcode"  (wrong-import-order)
-postcode_cli.py:2:0: W0611: Unused validate_postcode imported from postcode_functions (unused-import)
 postcode_cli.py:2:0: W0611: Unused get_postcodes_details imported from postcode_functions (unused-import)
-postcode_cli.py:2:0: W0611: Unused get_postcode_completions imported from postcode_functions (unused-import)
 postcode_cli.py:2:0: W0611: Unused get_postcode_for_location imported from postcode_functions (unused-import)
 ************* Module postcode_functions
 postcode_functions.py:13:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
@@ -38,5 +36,5 @@ postcode_functions.py:4:0: W0611: Unused import os (unused-import)
 postcode_functions.py:5:0: W0611: Unused import json (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 6.25/10 (previous run: 6.25/10, +0.00)
+Your code has been rated at 7.11/10 (previous run: 7.11/10, +0.00)
 
