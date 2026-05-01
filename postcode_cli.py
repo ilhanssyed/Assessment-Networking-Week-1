@@ -16,18 +16,32 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     postcode = args.postcode.upper().strip()
+    mode = args.mode.lower().strip()
 
-    if args.mode == "validate":
-        is_valid = validate_postcode(postcode)
-        if is_valid:
-            print(f"{postcode} is a valid postcode.")
-        else:
+    if mode == "validate":
+        try:
+            is_valid = validate_postcode(postcode)
+
+            if is_valid:
+                print(f"{postcode} is a valid postcode.")
+            else:
+                print(f"{postcode} is not a valid postcode.")
+
+        except Exception:
             print(f"{postcode} is not a valid postcode.")
-    elif args.mode == "complete":
-        results = get_postcode_completions(postcode.lower())
 
-        if not results:
+    elif mode == "complete":
+        try:
+            results = get_postcode_completions(postcode)
+
+            if not results:
+                print(f"No matches for {postcode}.")
+            else:
+                for item in results[:5]:
+                    print(item)
+
+        except Exception:
             print(f"No matches for {postcode}.")
-        else:
-            for item in results[:5]:
-                print(item)
+
+    else:
+        print("Invalid mode")
