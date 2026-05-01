@@ -21,25 +21,68 @@ def save_cache(cache: dict):
 
 def validate_postcode(postcode: str) -> bool:
 
+    if not isinstance(postcode, str):
+        raise TypeError("Function expects a string.")
+
     formatted_postcode = postcode.upper()
-    url = f"https://api.postcodes.io/postcodes/{formatted_postcode}"
+    url = f"https://api.postcodes.io/postcodes/{formatted_postcode}/validate"
     response = req.get(url)
+    if response.status_code >= 500:
+        raise req.RequestException(f"Unable to access API.")
 
-    if response.status_code != 200:
-        print("Error fetching postcodes")
-        return False
+    response.raise_for_status()
 
-    print(response.json())
+    data = response.json()
+
+    return data.get("result", False)
 
 
 def get_postcode_for_location(lat: float, long: float) -> str:
 
-    pass
+    if not isinstance(lat, float):
+        raise TypeError("Function expects two floats.")
+
+    if not isinstance(long, float):
+        raise TypeError("Function expects two floats.")
+
+    url = f"https://api.postcodes.io/postcodes?lon={long}&lat={lat}"
+
+    response = req.get(url)
+    if response.status_code >= 500:
+        raise req.RequestException(f"Unable to access API.")
+
+    response.raise_for_status()
+
+    data = response.json()
+    value = data.get("result")
+    if value is None:
+        raise ValueError("No relevant postcode found.")
+    else:
+        return value[0].get("postcode")
 
 
 def get_postcode_completions(postcode_start: str) -> list[str]:
-    pass
+    if not isinstance(postcode_start, str):
+        raise TypeError("Function expects a string.")
+
+    url = f"https://api.postcodes.io/postcodes/{postcode_start}/autocomplete"
+
+    response = req.get(url)
+
+    if response.status_code >= 500:
+        raise req.RequestException("Unable to access API.")
+
+    response.raise_for_status()
+
+    data = response.json()
+
+    value = data.get("result", [])
+
+    return value[:5]
 
 
 def get_postcodes_details(postcodes: list[str]) -> dict:
+    if not isinstance(postcodes, list[str]):
+        raise TypeError(Function expects a list of strings.)
+
     pass
